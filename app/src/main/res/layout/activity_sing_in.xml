@@ -7,15 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".SingIn">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/show_password"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPassword"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPassword" />
-
     <Button
         android:id="@+id/button"
         android:layout_width="50dp"
@@ -68,10 +59,10 @@
         android:text="Email"
         android:textColor="#3C3C3C"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/emailTextView"
+        app:layout_constraintEnd_toEndOf="@+id/emailTextView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintStart_toStartOf="@+id/emailTextView" />
 
     <TextView
         android:id="@+id/textView5"
@@ -81,13 +72,13 @@
         android:text="Password"
         android:textColor="#3C3C3C"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
+        app:layout_constraintBottom_toTopOf="@+id/passwordTextView"
+        app:layout_constraintEnd_toEndOf="@+id/passwordTextView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword" />
+        app:layout_constraintStart_toStartOf="@+id/passwordTextView" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/emailTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="-20dp"
@@ -101,16 +92,26 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/passwordTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="12345"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintEnd_toEndOf="@+id/emailTextView"
+        app:layout_constraintStart_toStartOf="@+id/emailTextView"
+        app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
+
+    <ImageView
+        android:id="@+id/seePassword"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:onClick="seePassword"
+        android:src="@drawable/show_password"
+        app:layout_constraintBottom_toBottomOf="@+id/passwordTextView"
+        app:layout_constraintEnd_toEndOf="@+id/passwordTextView"
+        app:layout_constraintTop_toTopOf="@+id/passwordTextView" />
 
     <TextView
         android:id="@+id/restorePassword"
@@ -119,8 +120,8 @@
         android:layout_marginTop="10dp"
         android:onClick="restorePasswordClick"
         android:text="Восстановить"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintEnd_toEndOf="@+id/seePassword"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
 
     <Button
         android:id="@+id/singInButton"
@@ -131,9 +132,9 @@
         android:onClick="singInUserClick"
         android:text="Войти"
         app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintEnd_toEndOf="@+id/seePassword"
+        app:layout_constraintStart_toStartOf="@+id/passwordTextView"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
 
     <TextView
         android:id="@+id/textView7"
