@@ -26,8 +26,8 @@ class SingIn : AppCompatActivity() {
             insets
         }
 
-        email = findViewById<TextView>(R.id.emailTextView)
-        password = findViewById<TextView>(R.id.passwordTextView)
+        email = findViewById<TextView>(R.id.emailSingIn)
+        password = findViewById<TextView>(R.id.passwordSingIn)
     }
 
     fun restorePasswordClick(view:View)

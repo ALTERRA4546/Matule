@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.matule.Home
 import com.example.matule.Profile
+import com.example.matule.ProfileMain
 import com.example.matule.databinding.FragmentUserBinding
 import com.example.matule.ui.user.UserViewModel
 
@@ -36,7 +37,7 @@ class UserFragment : Fragment() {
         binding.userProfile.setOnClickListener()
         {
             //this.context?.let {startActivity(Intent(it, Profile::class.java))}
-            startActivity(Intent(context, Profile::class.java))
+            startActivity(Intent(context, ProfileMain::class.java))
         }
 
         /*val textView: TextView = binding.textUser

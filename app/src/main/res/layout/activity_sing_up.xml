@@ -7,15 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".SingUp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/show_password"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPassword1"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword1"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPassword1" />
-
     <Button
         android:id="@+id/button3"
         android:layout_width="50dp"
@@ -68,13 +59,13 @@
         android:text="Ваше имя"
         android:textColor="#3C3C3C"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress4"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress4"
+        app:layout_constraintBottom_toTopOf="@+id/nameSingUp"
+        app:layout_constraintEnd_toEndOf="@+id/nameSingUp"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress4" />
+        app:layout_constraintStart_toStartOf="@+id/nameSingUp" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress4"
+        android:id="@+id/nameSingUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="-20dp"
@@ -82,7 +73,6 @@
         android:layout_marginEnd="-20dp"
         android:ems="10"
         android:hint="xxxxxxxx"
-        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="@+id/textView11"
         app:layout_constraintStart_toStartOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -95,10 +85,24 @@
         android:text="Email"
         android:textColor="#3C3C3C"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress1"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress1"
+        app:layout_constraintBottom_toTopOf="@+id/emailSingUp"
+        app:layout_constraintEnd_toEndOf="@+id/emailSingUp"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress1" />
+        app:layout_constraintStart_toStartOf="@+id/emailSingUp" />
+
+    <EditText
+        android:id="@+id/emailSingUp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="-20dp"
+        android:ems="10"
+        android:hint="xyz@mail.ru"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/nameSingUp" />
 
     <TextView
         android:id="@+id/textView13"
@@ -108,36 +112,32 @@
         android:text="Password"
         android:textColor="#3C3C3C"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword1"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword1"
+        app:layout_constraintBottom_toTopOf="@+id/passwordSingUp"
+        app:layout_constraintEnd_toEndOf="@+id/passwordSingUp"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword1" />
+        app:layout_constraintStart_toStartOf="@+id/passwordSingUp" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="-20dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="-20dp"
-        android:ems="10"
-        android:hint="xyz@mail.tu"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="@+id/textView11"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress4" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword1"
+        android:id="@+id/passwordSingUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:ems="10"
-        android:hint="12345"
+        android:hint="*******"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress1"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress1"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress1" />
+        app:layout_constraintEnd_toEndOf="@+id/emailSingUp"
+        app:layout_constraintStart_toStartOf="@+id/emailSingUp"
+        app:layout_constraintTop_toBottomOf="@+id/emailSingUp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:onClick="seePassword"
+        android:src="@drawable/show_password"
+        app:layout_constraintBottom_toBottomOf="@+id/passwordSingUp"
+        app:layout_constraintEnd_toEndOf="@+id/passwordSingUp"
+        app:layout_constraintTop_toTopOf="@+id/passwordSingUp" />
 
     <Button
         android:id="@+id/singUpButton"
@@ -149,8 +149,8 @@
         android:text="Зарегистрироваться"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword1"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintStart_toStartOf="@+id/passwordSingUp"
+        app:layout_constraintTop_toBottomOf="@+id/personalDataSingUpCheck" />
 
     <TextView
         android:id="@+id/textView15"
@@ -178,11 +178,11 @@
         app:layout_constraintTop_toTopOf="@+id/textView15" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/personalDataSingUpCheck"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Даю согласие на обработку персональных данных"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword1"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword1" />
+        app:layout_constraintStart_toStartOf="@+id/passwordSingUp"
+        app:layout_constraintTop_toBottomOf="@+id/passwordSingUp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
