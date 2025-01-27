@@ -20,26 +20,25 @@ class SupabaseManager {
     )
     {
         install(Auth)
-
         install(Postgrest)
         defaultSerializer = JacksonSerializer()
     }
 
 
-    suspend fun singUp(Name: String, Mail: String, Password: String) {
-        /*return try {*/
-            val user = supabase.auth.signUpWith(Email) {
+    suspend fun singUp(Name: String, Mail: String, Password: String): Result<Unit> {
+        return try {
+            supabase.auth.signUpWith(Email) {
                 email = Mail
                 password = Password
-                /*data = buildJsonObject {
+                data = buildJsonObject {
                     put("first_name", Name)
-                }*/
+                }
             }
 
-            /*Result.success(Unit)
+            Result.success(Unit)
         } catch (e: Exception) {
             Result.failure(e)
-        }*/
+        }
     }
 
     suspend fun singIn(Mail: String, Password: String): Result<Unit> {

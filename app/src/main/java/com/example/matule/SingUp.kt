@@ -89,14 +89,12 @@ class SingUp : AppCompatActivity() {
             var supabase = SupabaseManager()
             var result = supabase.singUp(userName.text.toString(), email.text.toString(), password.text.toString())
 
-            startActivity(Intent(this@SingUp, Home::class.java))
-
-            /*if(result.isSuccess) {
+            if(result.isSuccess) {
                 startActivity(Intent(this@SingUp, Home::class.java))
             }
             else {
                 Toast.makeText(this@SingUp, "Ошибка регистрации", Toast.LENGTH_SHORT).show()
-            }*/
+            }
         }
 
         finish()
