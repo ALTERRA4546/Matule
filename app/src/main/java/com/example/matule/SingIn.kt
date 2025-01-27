@@ -10,6 +10,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import org.w3c.dom.Text
 
 class SingIn : AppCompatActivity() {
@@ -53,9 +55,17 @@ class SingIn : AppCompatActivity() {
             return
         }
 
-        if(email.text.toString() == "1@mail.ru" && password.text.toString() == "1") {
-            startActivity(Intent(this, Home::class.java))
-            finish()
+        lifecycleScope.launch {
+            var supabase = SupabaseManager()
+
+            val result = supabase.singIn(email.text.toString(), password.text.toString())
+
+            if(result.isSuccess) {
+                startActivity(Intent(this@SingIn, Home::class.java))
+            }
+            else {
+                Toast.makeText(this@SingIn, "Неверный логин или пароль", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

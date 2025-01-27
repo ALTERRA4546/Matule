@@ -23,11 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     private var countClick = 0;
 
-    private val helloScreenImageQueue: Queue<Int> = LinkedList()
-    private val viewBarImageQueue: Queue<Int> = LinkedList()
-    private val headTextQueue: Queue<String> = LinkedList()
-    private val mainTextQueue: Queue<String> = LinkedList()
-    private val buttonTextQueue: Queue<String> = LinkedList()
+    private val helloQueue: Queue<helloScreanQueue> = LinkedList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,20 +35,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        helloScreenImageQueue.add(R.drawable.hello_screen_2_1)
-        helloScreenImageQueue.add(R.drawable.hello_screen_3_1)
-
-        viewBarImageQueue.add(R.drawable.hello_screen_2_2)
-        viewBarImageQueue.add(R.drawable.hello_screen_3_2)
-
-        headTextQueue.add("Начнем путешествие")
-        headTextQueue.add("У вас есть сила, чтобы")
-
-        mainTextQueue.add("Умная, великолепная и модная коллекция Изучите сейчас")
-        mainTextQueue.add("В вашей комнате много красивых и привлекательных растений")
-
-        buttonTextQueue.add("Далее")
-        buttonTextQueue.add("Далее")
+        helloQueue.add(helloScreanQueue(R.drawable.hello_screen_2_1, R.drawable.hello_screen_2_2, "Начнем путешествие", "Умная, великолепная и модная коллекция Изучите сейчас", "Далее"))
+        helloQueue.add(helloScreanQueue(R.drawable.hello_screen_3_1, R.drawable.hello_screen_3_2, "У вас есть сила, чтобы", "В вашей комнате много красивых и привлекательных растений", "Далее"))
 
         helloScreenImage = findViewById<ImageView>(R.id.helloScreen)
         viewBarImage = findViewById<ImageView>(R.id.viewBar)
@@ -70,23 +54,18 @@ class MainActivity : AppCompatActivity() {
 
     fun nextScreenOnClick(view:View)
     {
-        if (helloScreenImageQueue.size == countClick) {
+        if(helloQueue.isEmpty()) {
             startActivity(Intent(this, SingIn::class.java))
             finish()
         }
-        else
-        {
-            val nextHelloScreen = helloScreenImageQueue.poll()
-            val nextViewBar = viewBarImageQueue.poll()
-            val nextHeadText = headTextQueue.poll()
-            val nextMainText = mainTextQueue.poll()
-            var nextButtonText = buttonTextQueue.poll()
+        else {
+            val nextPool = helloQueue.poll()
 
-            helloScreenImage.setImageResource(nextHelloScreen)
-            viewBarImage.setImageResource(nextViewBar)
-            headTextTextView.text = nextHeadText
-            mainTextTextView.text = nextMainText
-            nextButton.text = nextButtonText
+            helloScreenImage.setImageResource(nextPool.image)
+            viewBarImage.setImageResource(nextPool.barImage)
+            headTextTextView.text = nextPool.title
+            mainTextTextView.text = nextPool.text
+            nextButton.text = nextPool.buttonText
 
             if (countClick == 0) {
                 welcomeTextTextView.visibility = View.GONE
@@ -94,12 +73,15 @@ class MainActivity : AppCompatActivity() {
                 mainTextTextView.visibility = View.VISIBLE
             }
 
-            helloScreenImageQueue.add(nextHelloScreen)
-            viewBarImageQueue.add(nextViewBar)
-            headTextQueue.add(nextHeadText)
-            mainTextQueue.add(nextMainText)
-
             countClick++;
         }
     }
+
+    data class helloScreanQueue (
+        val image: Int,
+        val barImage: Int,
+        val title: String,
+        val text: String,
+        val buttonText: String
+    )
 }

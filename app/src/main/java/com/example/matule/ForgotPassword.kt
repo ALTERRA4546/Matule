@@ -1,5 +1,6 @@
 package com.example.matule
 
+import android.accounts.Account
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -16,6 +17,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import org.w3c.dom.Text
 
 class ForgotPassword : AppCompatActivity() {
@@ -57,16 +60,32 @@ class ForgotPassword : AppCompatActivity() {
             return
         }
 
-        val layout = LayoutInflater.from(this).inflate(R.layout.check_your_mail, null)
-        val builder = AlertDialog.Builder(this).setView(layout)
-        val show = builder.show()
-        show.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        lifecycleScope.launch {
+            var supabase = SupabaseManager()
 
-        val mainLayout = layout.findViewById<LinearLayout>(R.id.mailLayoutCheckYourMail)
+            var result = supabase.forgotPassword(email.text.toString())
 
-        mainLayout.setOnClickListener{
-            show.dismiss()
-            startActivity(Intent(this, OTPCheck::class.java))
+            if(result.isSuccess) {
+                val layout =
+                    LayoutInflater.from(this@ForgotPassword).inflate(R.layout.check_your_mail, null)
+                val builder = AlertDialog.Builder(this@ForgotPassword).setView(layout)
+                val show = builder.show()
+                show.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+                val mainLayout = layout.findViewById<LinearLayout>(R.id.mailLayoutCheckYourMail)
+
+                mainLayout.setOnClickListener {
+                    show.dismiss()
+
+                    val intent = Intent(this@ForgotPassword, OTPCheck::class.java)
+                    intent.putExtra("account_email", email.text.toString())
+                    this@ForgotPassword.startActivity(intent)
+                }
+            }
+            else
+            {
+                Toast.makeText(this@ForgotPassword, "Ошибка отправки почты", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

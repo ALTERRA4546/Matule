@@ -13,6 +13,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 class SingUp : AppCompatActivity() {
     lateinit var userName : TextView
@@ -38,7 +40,7 @@ class SingUp : AppCompatActivity() {
         singUpButton = findViewById<Button>(R.id.singUpButton)
 
         personalData.setOnCheckedChangeListener {
-            _, isChecked -> personalData.isEnabled = isChecked
+            _, isChecked -> singUpButton.isEnabled = isChecked
 
             if (personalData.isChecked)
             {
@@ -83,7 +85,20 @@ class SingUp : AppCompatActivity() {
             return
         }
 
-        startActivity(Intent(this, MainActivity::class.java))
+        lifecycleScope.launch {
+            var supabase = SupabaseManager()
+            var result = supabase.singUp(userName.text.toString(), email.text.toString(), password.text.toString())
+
+            startActivity(Intent(this@SingUp, Home::class.java))
+
+            /*if(result.isSuccess) {
+                startActivity(Intent(this@SingUp, Home::class.java))
+            }
+            else {
+                Toast.makeText(this@SingUp, "Ошибка регистрации", Toast.LENGTH_SHORT).show()
+            }*/
+        }
+
         finish()
     }
 

@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import org.w3c.dom.Text
 
 class OTPCheck : AppCompatActivity() {
@@ -148,13 +150,24 @@ class OTPCheck : AppCompatActivity() {
     {
         if(otpver1.text.isNotEmpty() && otpver2.text.isNotEmpty() && otpver3.text.isNotEmpty() && otpver4.text.isNotEmpty() && otpver5.text.isNotEmpty() && otpver6.text.isNotEmpty())  {
             var otpFull = otpver1.text.toString()+otpver2.text.toString()+otpver3.text.toString()+otpver4.text.toString()+otpver5.text.toString()+otpver6.text.toString()
-            if(otpFull == "111111") {
-                startActivity(Intent(this, Home::class.java))
-                finish()
-            }
-            else
-            {
-                Toast.makeText(applicationContext, "Веденный код неправильный", Toast.LENGTH_SHORT).show()
+
+            lifecycleScope.launch {
+                var supabase = SupabaseManager()
+                var email = intent.getStringExtra("account_email") ?: ""
+
+                var resultOtp = supabase.otpSingIn(email, otpFull)
+
+                if (resultOtp.isSuccess) {
+                    var resultReset = supabase.resetPassword("1234")
+
+                    if (resultReset.isSuccess) {
+                        startActivity(Intent(this@OTPCheck, Home::class.java))
+                        finish()
+                    }
+                }
+                else {
+                    Toast.makeText(this@OTPCheck, "Ошибка отправки кода", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

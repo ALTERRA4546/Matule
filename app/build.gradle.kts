@@ -54,4 +54,11 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.google.android.material:material:1.3.0")
     implementation("androidx.viewpager2:viewpager2:1.0.0")
+
+    implementation(platform("io.github.jan-tennert.supabase:bom:3.0.3"))
+    implementation("io.github.jan-tennert.supabase:postgrest-kt")
+    implementation("io.github.jan-tennert.supabase:auth-kt")
+    implementation("io.github.jan-tennert.supabase:realtime-kt")
+    implementation("io.ktor:ktor-client-cio:3.0.0-rc-1")
+    implementation("io.github.jan-tennert.supabase:serializer-jackson:2.18.2")
 }
