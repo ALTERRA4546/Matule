@@ -12,39 +12,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/check_mark"
-        app:layout_constraintBottom_toBottomOf="@+id/emailSingIn11"
-        app:layout_constraintEnd_toEndOf="@+id/emailSingIn11"
-        app:layout_constraintTop_toTopOf="@+id/emailSingIn11" />
+        app:layout_constraintBottom_toBottomOf="@+id/phoneMainProfile"
+        app:layout_constraintEnd_toEndOf="@+id/phoneMainProfile"
+        app:layout_constraintTop_toTopOf="@+id/phoneMainProfile" />
 
     <ImageView
         android:id="@+id/imageView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/check_mark"
-        app:layout_constraintBottom_toBottomOf="@+id/emailSingIn10"
-        app:layout_constraintEnd_toEndOf="@+id/emailSingIn10"
-        app:layout_constraintTop_toTopOf="@+id/emailSingIn10" />
+        app:layout_constraintBottom_toBottomOf="@+id/addressMainProfile"
+        app:layout_constraintEnd_toEndOf="@+id/addressMainProfile"
+        app:layout_constraintTop_toTopOf="@+id/addressMainProfile" />
 
     <ImageView
         android:id="@+id/imageView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/check_mark"
-        app:layout_constraintBottom_toBottomOf="@+id/emailSingIn9"
-        app:layout_constraintEnd_toEndOf="@+id/emailSingIn9"
-        app:layout_constraintTop_toTopOf="@+id/emailSingIn9" />
+        app:layout_constraintBottom_toBottomOf="@+id/surnameMainProfile"
+        app:layout_constraintEnd_toEndOf="@+id/surnameMainProfile"
+        app:layout_constraintTop_toTopOf="@+id/surnameMainProfile" />
 
     <Spinner
         android:id="@+id/phoneRegionProfile"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/emailSingIn11"
-        app:layout_constraintEnd_toStartOf="@+id/emailSingIn11"
-        app:layout_constraintStart_toStartOf="@+id/emailSingIn10"
-        app:layout_constraintTop_toTopOf="@+id/emailSingIn11" />
+        app:layout_constraintBottom_toBottomOf="@+id/phoneMainProfile"
+        app:layout_constraintEnd_toStartOf="@+id/phoneMainProfile"
+        app:layout_constraintStart_toStartOf="@+id/addressMainProfile"
+        app:layout_constraintTop_toTopOf="@+id/phoneMainProfile" />
 
     <EditText
-        android:id="@+id/emailSingIn11"
+        android:id="@+id/phoneMainProfile"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -52,10 +52,10 @@
         android:ems="10"
         android:hint="London"
         android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="@+id/emailSingIn10"
+        app:layout_constraintEnd_toEndOf="@+id/addressMainProfile"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/emailSingIn10"
-        app:layout_constraintTop_toBottomOf="@+id/emailSingIn10" />
+        app:layout_constraintStart_toStartOf="@+id/addressMainProfile"
+        app:layout_constraintTop_toBottomOf="@+id/addressMainProfile" />
 
     <TextView
         android:id="@+id/textView36"
@@ -65,22 +65,22 @@
         android:text="Телефон"
         android:textColor="#3C3C3C"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/emailSingIn11"
-        app:layout_constraintEnd_toEndOf="@+id/emailSingIn11"
+        app:layout_constraintBottom_toTopOf="@+id/phoneMainProfile"
+        app:layout_constraintEnd_toEndOf="@+id/phoneMainProfile"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/phoneRegionProfile" />
 
     <EditText
-        android:id="@+id/emailSingIn10"
+        android:id="@+id/addressMainProfile"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="London"
-        app:layout_constraintEnd_toEndOf="@+id/emailSingIn9"
+        app:layout_constraintEnd_toEndOf="@+id/surnameMainProfile"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/emailSingIn9"
-        app:layout_constraintTop_toBottomOf="@+id/emailSingIn9" />
+        app:layout_constraintStart_toStartOf="@+id/surnameMainProfile"
+        app:layout_constraintTop_toBottomOf="@+id/surnameMainProfile" />
 
     <TextView
         android:id="@+id/textView35"
@@ -90,22 +90,22 @@
         android:text="Адрес"
         android:textColor="#3C3C3C"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/emailSingIn10"
-        app:layout_constraintEnd_toEndOf="@+id/emailSingIn10"
+        app:layout_constraintBottom_toTopOf="@+id/addressMainProfile"
+        app:layout_constraintEnd_toEndOf="@+id/addressMainProfile"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/emailSingIn10" />
+        app:layout_constraintStart_toStartOf="@+id/addressMainProfile" />
 
     <EditText
-        android:id="@+id/emailSingIn9"
+        android:id="@+id/surnameMainProfile"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="Иванов"
-        app:layout_constraintEnd_toEndOf="@+id/emailSingIn8"
+        app:layout_constraintEnd_toEndOf="@+id/nameMainProfile"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/emailSingIn8"
-        app:layout_constraintTop_toBottomOf="@+id/emailSingIn8" />
+        app:layout_constraintStart_toStartOf="@+id/nameMainProfile"
+        app:layout_constraintTop_toBottomOf="@+id/nameMainProfile" />
 
     <TextView
         android:id="@+id/textView33"
@@ -115,13 +115,13 @@
         android:text="Фамилия"
         android:textColor="#3C3C3C"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/emailSingIn9"
-        app:layout_constraintEnd_toEndOf="@+id/emailSingIn9"
+        app:layout_constraintBottom_toTopOf="@+id/surnameMainProfile"
+        app:layout_constraintEnd_toEndOf="@+id/surnameMainProfile"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/emailSingIn9" />
+        app:layout_constraintStart_toStartOf="@+id/surnameMainProfile" />
 
     <EditText
-        android:id="@+id/emailSingIn8"
+        android:id="@+id/nameMainProfile"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -141,23 +141,23 @@
         android:text="Имя"
         android:textColor="#3C3C3C"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/emailSingIn8"
-        app:layout_constraintEnd_toEndOf="@+id/emailSingIn8"
+        app:layout_constraintBottom_toTopOf="@+id/nameMainProfile"
+        app:layout_constraintEnd_toEndOf="@+id/nameMainProfile"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/emailSingIn8" />
+        app:layout_constraintStart_toStartOf="@+id/nameMainProfile" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/profileNameMainProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Хохрин Никита"
         android:textColor="#000000"
         android:textSize="26dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView11"
+        app:layout_constraintEnd_toEndOf="@+id/photoMainProfile"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/imageView11"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+        app:layout_constraintStart_toStartOf="@+id/photoMainProfile"
+        app:layout_constraintTop_toBottomOf="@+id/photoMainProfile" />
 
     <TextView
         android:id="@+id/textView20"
@@ -183,7 +183,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/photoMainProfile"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="40dp"
@@ -217,9 +217,9 @@
         android:onClick="changeProfile"
         android:text="Изменить фото профиля"
         android:textColor="#1897E0"
-        app:layout_constraintEnd_toEndOf="@+id/textView22"
-        app:layout_constraintStart_toStartOf="@+id/textView22"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+        app:layout_constraintEnd_toEndOf="@+id/profileNameMainProfile"
+        app:layout_constraintStart_toStartOf="@+id/profileNameMainProfile"
+        app:layout_constraintTop_toBottomOf="@+id/profileNameMainProfile" />
 
     <ImageView
         android:id="@+id/imageView12"
@@ -237,8 +237,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/check_mark"
-        app:layout_constraintBottom_toBottomOf="@+id/emailSingIn8"
-        app:layout_constraintEnd_toEndOf="@+id/emailSingIn8"
-        app:layout_constraintTop_toTopOf="@+id/emailSingIn8" />
+        app:layout_constraintBottom_toBottomOf="@+id/nameMainProfile"
+        app:layout_constraintEnd_toEndOf="@+id/nameMainProfile"
+        app:layout_constraintTop_toTopOf="@+id/nameMainProfile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

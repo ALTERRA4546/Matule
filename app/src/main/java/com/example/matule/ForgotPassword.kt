@@ -96,6 +96,7 @@ class ForgotPassword : AppCompatActivity() {
 
     fun goBackClick(view:View)
     {
+        //onBackPressed()
         startActivity(Intent(this, SingIn::class.java))
         finish()
     }

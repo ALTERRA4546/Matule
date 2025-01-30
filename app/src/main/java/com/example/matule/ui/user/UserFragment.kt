@@ -9,11 +9,14 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.matule.Home
 import com.example.matule.Profile
 import com.example.matule.ProfileMain
+import com.example.matule.SupabaseManager
 import com.example.matule.databinding.FragmentUserBinding
 import com.example.matule.ui.user.UserViewModel
+import kotlinx.coroutines.launch
 
 class UserFragment : Fragment() {
 
@@ -44,6 +47,17 @@ class UserFragment : Fragment() {
         userViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }*/
+
+        val userName: TextView = binding.userNameUserFrame
+
+        lifecycleScope.launch {
+            var supabase = SupabaseManager()
+
+            var user = supabase.getProfile()
+
+            userName.text = user.last_name + " " + user.first_name
+        }
+
         return root
     }
 
