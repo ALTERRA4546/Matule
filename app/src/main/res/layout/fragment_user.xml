@@ -39,59 +39,139 @@
         app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView9">
 
-        <Button
-            android:id="@+id/userProfile"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#1897E0"
-            android:text="Профиль"
-            android:textAlignment="textStart"
-            app:cornerRadius="0dp" />
-
-        <Button
-            android:id="@+id/userProfile2"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#1897E0"
-            android:text="Корзина"
-            android:textAlignment="textStart"
-            app:cornerRadius="0dp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/userProfile3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#1897E0"
-            android:text="Избранное"
-            android:textAlignment="textStart"
-            app:cornerRadius="0dp" />
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/user_icon_menu" />
 
-        <Button
-            android:id="@+id/userProfile4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#1897E0"
-            android:text="Заказы"
-            android:textAlignment="textStart"
-            app:cornerRadius="0dp" />
+            <Button
+                android:id="@+id/userProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:backgroundTint="#1897E0"
+                android:text="Профиль"
+                android:textAlignment="textStart"
+                app:cornerRadius="0dp" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/userProfile5"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#1897E0"
-            android:text="Уведомления"
-            android:textAlignment="textStart"
-            app:cornerRadius="0dp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/userProfile6"
+            <ImageView
+                android:id="@+id/imageView17"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/cart_icon_menu" />
+
+            <Button
+                android:id="@+id/userProfile2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#1897E0"
+                android:text="Корзина"
+                android:textAlignment="textStart"
+                app:cornerRadius="0dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#1897E0"
-            android:text="Настройки"
-            android:textAlignment="textStart"
-            app:cornerRadius="0dp" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView18"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/favorite_icon_menu" />
+
+            <Button
+                android:id="@+id/userProfile3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#1897E0"
+                android:text="Избранное"
+                android:textAlignment="textStart"
+                app:cornerRadius="0dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView19"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/delevery_icon_menu" />
+
+            <Button
+                android:id="@+id/userProfile4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#1897E0"
+                android:text="Заказы"
+                android:textAlignment="textStart"
+                app:cornerRadius="0dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView20"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/notification_icon_menu" />
+
+            <Button
+                android:id="@+id/userProfile5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#1897E0"
+                android:text="Уведомления"
+                android:textAlignment="textStart"
+                app:cornerRadius="0dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView21"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/settings_icon_menu" />
+
+            <Button
+                android:id="@+id/userProfile6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#1897E0"
+                android:text="Настройки"
+                android:textAlignment="textStart"
+                app:cornerRadius="0dp" />
+        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
@@ -106,14 +186,28 @@
             android:layout_width="match_parent"
             android:layout_height="10dp" />
 
-        <Button
-            android:id="@+id/userProfile7"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="#1897E0"
-            android:text="Выйти"
-            android:textAlignment="textStart"
-            app:cornerRadius="0dp" />
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView22"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/exit_icon_menu" />
+
+            <Button
+                android:id="@+id/userProfile7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#1897E0"
+                android:text="Выйти"
+                android:textAlignment="textStart"
+                app:cornerRadius="0dp" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <ImageView

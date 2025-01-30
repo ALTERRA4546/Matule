@@ -158,7 +158,7 @@ class OTPCheck : AppCompatActivity() {
                 var resultOtp = supabase.otpSingIn(email, otpFull)
 
                 if (resultOtp.isSuccess) {
-                    var resultReset = supabase.resetPassword("1234")
+                    var resultReset = supabase.resetPassword("123456")
 
                     if (resultReset.isSuccess) {
                         startActivity(Intent(this@OTPCheck, Home::class.java))

@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 
 class SingUp : AppCompatActivity() {
     lateinit var userName : TextView
-    lateinit var email : TextView
+    lateinit var mail : TextView
     lateinit var password : TextView
     lateinit var personalData : CheckBox
     lateinit var singUpButton : Button
@@ -34,7 +34,7 @@ class SingUp : AppCompatActivity() {
         }
 
         userName = findViewById<TextView>(R.id.nameSingUp)
-        email = findViewById<TextView>(R.id.emailSingUp)
+        mail = findViewById<TextView>(R.id.emailSingUp)
         password = findViewById<TextView>(R.id.passwordSingUp)
         personalData = findViewById<CheckBox>(R.id.personalDataSingUpCheck)
         singUpButton = findViewById<Button>(R.id.singUpButton)
@@ -73,7 +73,7 @@ class SingUp : AppCompatActivity() {
 
     fun singUpClick(view: View)
     {
-        if(!isValidEmail(email.text.toString()))
+        if(!isValidEmail(mail.text.toString()))
         {
             Toast.makeText(applicationContext, "Формат почты неверный", Toast.LENGTH_SHORT).show()
             return
@@ -87,17 +87,18 @@ class SingUp : AppCompatActivity() {
 
         lifecycleScope.launch {
             var supabase = SupabaseManager()
-            var result = supabase.singUp(userName.text.toString(), email.text.toString(), password.text.toString())
+            var result = supabase.singUp(userName.text.toString(), mail.text.toString(), password.text.toString())
+            startActivity(Intent(this@SingUp, Home::class.java))
+
 
             if(result.isSuccess) {
                 startActivity(Intent(this@SingUp, Home::class.java))
+                finish()
             }
             else {
                 Toast.makeText(this@SingUp, "Ошибка регистрации", Toast.LENGTH_SHORT).show()
             }
         }
-
-        finish()
     }
 
     fun singInClick(view:View)

@@ -7,7 +7,9 @@ import io.github.jan.supabase.auth.providers.builtin.Email
 import io.github.jan.supabase.auth.providers.builtin.OTP
 import io.github.jan.supabase.createSupabaseClient
 import io.github.jan.supabase.postgrest.Postgrest
+import io.github.jan.supabase.postgrest.from
 import io.github.jan.supabase.postgrest.postgrest
+import io.github.jan.supabase.postgrest.query.Columns
 import io.github.jan.supabase.serializer.JacksonSerializer
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.put
@@ -23,7 +25,6 @@ class SupabaseManager {
         install(Postgrest)
         defaultSerializer = JacksonSerializer()
     }
-
 
     suspend fun singUp(Name: String, Mail: String, Password: String): Result<Unit> {
         return try {
@@ -94,9 +95,25 @@ class SupabaseManager {
         }
     }
 
-    data class users (
-        val name: String,
-        val email: String,
-        val password: String
+    suspend fun getProfile():profile {
+        var user = supabase.from("profile").select(Columns.list("first_name", "last_name", "address", "phone")).decodeSingle<profile>()
+
+        return user
+    }
+
+    suspend fun updateUserProfile(Name: String, Surname: String, Address: String, Phone: String) {
+        supabase.auth.updateUser {
+            "first_name" to Name
+            "last_name" to Surname
+            "address" to Address
+            "phone" to Phone
+        }
+    }
+
+    data class profile (
+        val first_name: String,
+        val last_name: String,
+        val address: String,
+        val phone: String
     )
 }

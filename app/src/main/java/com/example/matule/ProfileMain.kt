@@ -9,6 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 class ProfileMain : AppCompatActivity() {
     lateinit var phoneRegion : Spinner
@@ -29,6 +31,11 @@ class ProfileMain : AppCompatActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, items)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         phoneRegion.adapter = adapter
+
+        lifecycleScope.launch {
+            var supabaseManager = SupabaseManager()
+            var user = supabaseManager.getProfile()
+        }
     }
 
     fun doneButton (view:View) {

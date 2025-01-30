@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         else {
             val nextPool = helloQueue.poll()
 
-            helloScreenImage.setImageResource(nextPool.image)
+            helloScreenImage.setImageResource(nextPool!!.image)
             viewBarImage.setImageResource(nextPool.barImage)
             headTextTextView.text = nextPool.title
             mainTextTextView.text = nextPool.text
